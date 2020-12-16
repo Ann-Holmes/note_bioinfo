@@ -12,7 +12,7 @@
 
 
 
-Indices and tables
+索引
 ==================
 
 * :ref:`genindex`
