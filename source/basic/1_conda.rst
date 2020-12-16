@@ -1,0 +1,166 @@
+.. raw:: html
+
+   <html xmlns="http://www.w3.org/1999/xhtml"><head></head><body><center>Conda 使用指南<center> </center></center></body></html>
+
+参考链接: https://zhuanlan.zhihu.com/p/44398592
+
+.. _header-n3:
+
+1. Conda 环境管理
+=================
+
+.. _header-n4:
+
+1.1 创建环境
+------------
+
+-  命令: ``conda create --name [环境名] python=[Python版本号]``
+
+.. _header-n8:
+
+1.2 激活环境
+------------
+
+-  适用于在终端中使用该环境, 环境名会在终端的每一行的前方,
+   用小括号括起来;
+
+   .. figure:: ./pic/conda1.png
+      :alt: 
+
+   .. code:: shell
+
+      $ source activate [环境名] # for linux 
+      $ activate [环境名] # for windows
+
+.. _header-n14:
+
+1.3 返回主环境
+--------------
+
+.. code:: shell
+
+   $ source deactivate [环境名] # for linux 
+   $ deactivate [环境名] # for windows
+
+.. _header-n16:
+
+1.4 删除环境
+------------
+
+-  命令: ``conda remove --name [环境名] --all``
+
+.. _header-n20:
+
+1.5 查看系统中所有的环境
+------------------------
+
+-  命令: ``conda info -e``;
+
+.. _header-n24:
+
+1.6 导出当前环境到requirements.txt文件
+--------------------------------------
+
+-  命令: ``conda list --envs requirements.txt``
+
+.. _header-n28:
+
+1.7 从requirements.txt文件创建环境
+----------------------------------
+
+-  命令: ``conda create --name <env> --file requirements.txt``
+
+.. _header-n32:
+
+2. Conda 的包管理
+=================
+
+.. _header-n33:
+
+2.1 安装库
+----------
+
+-  为当前环境安装库
+
+-  命令: ``conda Install numpy``
+
+.. _header-n39:
+
+2.2 查看已安装的库
+------------------
+
+-  显示所有已安装的包和库, 从site-packages中搜索已经安装的包;
+
+-  命令: ``conda list``
+
+.. _header-n45:
+
+2.3 查看某个环境已安装的包
+--------------------------
+
+-  命令: ``conda list -n [环境名]``;
+
+.. _header-n49:
+
+2.4 搜索package的信息
+---------------------
+
+-  命令: ``conda search [包名]``;
+
+.. _header-n53:
+
+2.5 安装package到指定环境
+-------------------------
+
+-  命令: ``conda install -n [环境名] [包名]``
+
+-  也可以指定从某个channel安装, 参数是\ ``-c``;
+
+.. _header-n59:
+
+2.6 更新package
+---------------
+
+-  命令: ``conda update -n [环境名] [包名]``
+
+.. _header-n63:
+
+2.7 删除package
+---------------
+
+-  ``conda remove -n [环境名] [包名]``
+
+.. _header-n67:
+
+2.8 更新
+--------
+
+.. code:: shell
+
+   # 更新conda, 保持conda最新
+   $ conda update conda
+   # 更新anaconda
+   $ conda update anaconda
+   # 更新Python
+   $ conda update python
+
+.. _header-n69:
+
+3. 设置国内镜像
+===============
+
+-  以下设置是清华镜像源的镜像;
+
+   .. code:: shell
+
+      $ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/ 
+      $ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/ 
+      $ conda config --set show_channel_urls yes
+
+.. _header-n72:
+
+Windows上使用问题
+=================
+
+1. | 如何打开管理员终端
+   | 在开始界面, 找到Anaconda prompt, 右键,管理员运行, 即可.
